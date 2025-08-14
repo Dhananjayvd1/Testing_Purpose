@@ -34,7 +34,7 @@ jobs:
         run: |
           COMMIT_SHA=$(git rev-parse HEAD)
           echo "COMMIT_SHA=$COMMIT_SHA"
-          COMMIT_MESSAGE=$(git log -l --pretty=%B $COMMIT_SHA)
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B $COMMIT_SHA)
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE"
           
 
