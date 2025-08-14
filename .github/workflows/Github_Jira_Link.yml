@@ -48,8 +48,13 @@ jobs:
 
       - name: Call Python Script
         id: Python_op
+        env:
+             jira_url: "https://dhananjayvd1.atlassian.net"
+             jira_username: ${{ secrets.JIRA_USERNAME }}
+             jira_api_token: ${{ secrets.JIRA_API_TOKEN }}
+             commit_msg: $COMMIT_MESSAGE 
         run: |
-           python Jira_Verify.py           
+           python Jira_Verify.py     
           
 
       # Runs a set of commands using the runners shell
