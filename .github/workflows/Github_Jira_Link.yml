@@ -39,9 +39,7 @@ jobs:
           echo "COMMIT_SHA=$COMMIT_SHA"
           COMMIT_MESSAGE=$(git log -1 --pretty=%B $COMMIT_SHA)
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE"
-
-      - name: Print Env variables
-          echo "$jira_url $jira_username"
+          echo "$jira_url $jira_username"          
 
       - name: Call Python Script
         id: Python_op
