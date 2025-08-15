@@ -1,7 +1,7 @@
 import subprocess
 import re
 import sys
-#import requests
+import requests
 import os
 
 def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
@@ -14,9 +14,10 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(match)
     jira_id=match.group()
     print(" JIRA ID- {jira_id} ")
-    print(jira_url)
-    print(commit_msg)
-
+   
+    jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
+    response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token))
+    print(response_verify)
 
 
 if __name__ == "__main__":
