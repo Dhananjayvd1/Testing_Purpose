@@ -40,7 +40,10 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with: 
-           python-version: '3.13'           
+           python-version: '3.13'  
+
+      - name: Install Request Module
+        run: pip3 install requests         
 
       - name: Call Python Script
         id: Python_op
