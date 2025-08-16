@@ -31,7 +31,8 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
 
     print("After JIRA===")
     print(jira.get_all_projects)
-
+    print(jira.get_project("SCRUM"))
+    print(jira.get_issue("SCRUM-1"))
     #jira_client = JIRA(options={'server': "https://dhananjayvd1.atlassian.net/" }, basic_auth=("dhananjayvd1@gmail.com", "Jan_2025"))
     #print("JIRA Client OP-", jira_client.project('SCRUM'))
    # issue = jira_client.issue(jira_id)
