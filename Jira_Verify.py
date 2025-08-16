@@ -13,9 +13,11 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     match = re.search (jira_id_pattern, commit_msg)
     print(match)
     jira_id=match.group()
-    print(" JIRA ID- {jira_id} ")
+    print("JIRA ID-",jira_id)
+   
    
     jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
+    print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token))
     print(response_verify)
 
