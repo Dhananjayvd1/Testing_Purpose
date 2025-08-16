@@ -20,9 +20,9 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
     print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token))
-    print(response_verify)
+    print(response_verify.text)
 
-    jira_client = JIRA(options={'server': jira_url}, basic_auth=(jira_username, jira_api_token))
+    jira_client = JIRA(options={'server': jira_url }, basic_auth=(jira_username, 'Jan_2025'))
     issue = jira_client.issue(jira_id)
     print(issue.fields.summary)
 
