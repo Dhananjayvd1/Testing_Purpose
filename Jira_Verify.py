@@ -23,6 +23,7 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(response_verify.text)
 
     jira_client = JIRA(options={'server': jira_url }, basic_auth=(jira_username, 'Jan_2025'))
+    print("JIRA Client OP-", jira_client.project)
     issue = jira_client.issue(jira_id)
     print(issue.fields.summary)
 
