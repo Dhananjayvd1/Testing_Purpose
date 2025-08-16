@@ -2,7 +2,8 @@ import subprocess
 import re
 import sys
 import requests
-import os
+import os 
+from jira.client import JIRA
 
 def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     jira_url = os.getenv("jira_url")
@@ -20,6 +21,10 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token))
     print(response_verify)
+
+    jira_client = JIRA(options={'server': jira_url}, basic_auth=(jira_username, jira_api_token))
+    issue = jira_client.issue(jira_id)
+    print(issue.fields.summary)
 
 
 if __name__ == "__main__":
