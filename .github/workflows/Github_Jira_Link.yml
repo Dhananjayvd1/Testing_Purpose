@@ -43,7 +43,10 @@ jobs:
            python-version: '3.13'  
 
       - name: Install Request Module
-        run: pip3 install requests         
+        run: pip3 install requests   
+
+      - name: Install JIRA Module
+        run: pip3 install jira       
 
       - name: Call Python Script
         id: Python_op
