@@ -19,10 +19,10 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
    
     jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
     print(jira_api_url)
-    response_verify = requests.get(jira_api_url, auth=('dhananjayvd1@gmail.com','Jan_2025'))
+    response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
     print(response_verify.text)
 
-    jira_client = JIRA(options={'server': "https://dhananjayvd1.atlassian.net/" }, basic_auth=(jira_username, "Jan_2025"))
+    jira_client = JIRA(options={'server': "https://dhananjayvd1.atlassian.net/" }, basic_auth=("dhananjayvd1@gmail.com", "Jan_2025"))
     print("JIRA Client OP-", jira_client.project('10000'))
    # issue = jira_client.issue(jira_id)
     #print(issue.fields.summary)
