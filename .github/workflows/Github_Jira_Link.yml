@@ -46,7 +46,10 @@ jobs:
         run: pip3 install requests   
 
       - name: Install JIRA Module
-        run: pip3 install jira       
+        run: pip3 install jira    
+
+      - name: Install JIRA Module
+        run: pip install atlassian-python-api    
 
       - name: Call Python Script
         id: Python_op
