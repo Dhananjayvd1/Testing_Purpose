@@ -24,7 +24,7 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
     print(response_verify.json)
-    print(response_verify.raw)
+    print(response_verify.content)
 
 
     jira = Jira (
@@ -34,7 +34,7 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
 
     print("After JIRA===")
     #print(jira.get_all_projects)
-    #print(jira.get_project("SCRUM"))
+    print(jira.get_project("SCRUM"))
     #print(jira.get_issue("SCRUM-1"))
     print(jira.get_all_projects)
     #jira_client = JIRA(options={'server': "https://dhananjayvd1.atlassian.net/" }, basic_auth=("dhananjayvd1@gmail.com", "Jan_2025"))
