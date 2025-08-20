@@ -18,7 +18,9 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print("JIRA ID-",jira_id)
    
    
-    jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
+    #jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
+    #https://dhananjayvd1.atlassian.net/browse/SCRUM-1
+    jira_api_url = f"{jira_url}/browse/{jira_id}"
     print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
     print(response_verify.text)
