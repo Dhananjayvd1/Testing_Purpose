@@ -23,7 +23,8 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     jira_api_url = f"{jira_url}/browse/{jira_id}"
     print(jira_api_url)
     response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
-    print(response_verify.status_code)
+    print(response_verify.json)
+    print(response_verify.raw)
 
 
     jira = Jira (
