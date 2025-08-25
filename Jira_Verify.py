@@ -5,6 +5,7 @@ import requests
 import os 
 from jira.client import JIRA
 from atlassian import Jira
+import json
 
 def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     jira_url = os.getenv("jira_url")
@@ -28,9 +29,10 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(response_verify.status_code)
 
     jira_comment_url = f"{jira_url}/browse/{jira_id}/comment"
-    headers = {'Content-Type': 'application/json'}
-    payload = {'body': commit_msg}
-    response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers= headers, json=payload )
+    print(jira_comment_url)
+    headers = { "Content-Type": "application/json" }
+    payload = { "body": commit_msg }
+    response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers=headers, data=json.dumps(payload) )
     print(response_comment.status_code)
     
 
