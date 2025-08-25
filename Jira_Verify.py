@@ -28,7 +28,10 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(response_verify.json)
     print(response_verify.status_code)
 
-    jira_comment_url = f"{jira_url}/browse/{jira_id}/comments"
+    #https://dhananjayvd1.atlassian.net/rest/api/3/issue/SCRUM-1/comment
+
+    #jira_comment_url = f"{jira_url}/browse/{jira_id}/comments"
+    jira_comment_url = f"{jira_url}/rest/api/3/issue/{jira_id}/comment"
     print(jira_comment_url)
     headers = { "Content-Type": "application/json" }
     payload = { "body": commit_msg }
