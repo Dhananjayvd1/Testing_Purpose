@@ -28,7 +28,7 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     print(response_verify.json)
     print(response_verify.status_code)
 
-    jira_comment_url = f"{jira_url}/browse/{jira_id}/comment"
+    jira_comment_url = f"{jira_url}/browse/{jira_id}/comments"
     print(jira_comment_url)
     headers = { "Content-Type": "application/json" }
     payload = { "body": commit_msg }
