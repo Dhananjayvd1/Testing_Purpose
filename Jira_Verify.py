@@ -24,8 +24,8 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     #jira_api_url = f"{jira_url}/browse/{jira_id}"
     jira_api_url = f"{jira_url}/rest/api/3/issue/{jira_id}"
     print(jira_api_url)
-    #response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
-    response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token) )
+    response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
+    #response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token) )
     print(response_verify.json)
     print(response_verify.status_code)
 
