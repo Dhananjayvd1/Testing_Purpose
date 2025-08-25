@@ -23,11 +23,15 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
     jira_api_url = f"{jira_url}/browse/{jira_id}"
     print(jira_api_url)
     #response_verify = requests.get(jira_api_url, auth=("dhananjayvd1@gmail.com","Jan_2025"))
-    response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token))
+    response_verify = requests.get(jira_api_url, auth=(jira_username,jira_api_token) )
     print(response_verify.json)
     print(response_verify.status_code)
 
-
+    jira_comment_url = f"{jira_url}/browse/{jira_id}/comment"
+    headers = {'Content-Type': 'applcation/json'}
+    payload = {'bdoy': commit_msg}
+    response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token) )
+    print(response_comment.status_code)
     
 
 if __name__ == "__main__":
