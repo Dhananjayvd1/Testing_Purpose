@@ -39,7 +39,7 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
       comment= f"Hello, from { commit_msg }"
       headers = { "Content-Type": "application/json" }
       payload = { "body": comment }
-      response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers=headers, json=payload )
+      response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers=headers, data=payload )
       print(response_comment.status_code)
       return True
     except Exception as e:
