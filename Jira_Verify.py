@@ -33,16 +33,25 @@ def update_jira_ticket(jira_id_pattern=r'\b[A-Z]+-\d+\b'):
 
     #jira_comment_url = f"{jira_url}/browse/{jira_id}/comments"
     #nw
-    jira_comment_url = f"{jira_url}/rest/api/3/issue/{jira_id}/comment"
-    print(jira_comment_url)
-    headers = { "Content-Type": "application/json" }
-    payload = { "body": commit_msg }
-    response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers=headers, data=json.dumps(payload) )
-    print(response_comment.status_code)
+    try:
+      jira_comment_url = f"{jira_url}/rest/api/3/issue/{jira_id}/comment"
+      print(jira_comment_url)
+      comment= f"Hello, from { commit_msg }"
+      headers = { "Content-Type": "application/json" }
+      payload = { "body": comment }
+      response_comment = requests.post(jira_comment_url, auth=(jira_username,jira_api_token), headers=headers, json=payload )
+      print(response_comment.status_code)
+      return True
+    except Exception as e:
+       print(f"Failed to add a comment to the Jira: {e}")
+       return False
     
-
 if __name__ == "__main__":
    print("In Main")
-   update_jira_ticket()
+  # update_jira_ticket()
+   if update_jira_ticket():
+      sys.exit(0)
+   else:
+      sys.exit(1)
 
 
